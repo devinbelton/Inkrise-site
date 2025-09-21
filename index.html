@@ -5,287 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inkrise — Where stories rise together</title>
 
-  <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 
-  <!-- Social share -->
   <meta property="og:title" content="Inkrise" />
   <meta property="og:description" content="Where stories rise together." />
   <meta property="og:image" content="og.png" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root{
-      /* Brand palette (approx from your sheet) */
-      --ink-black:#0d0d0d;
       --plug-teal:#12e6c5;
       --story:#7b61ff;
-      --page-white:#f3f6fa;
-      --gray-mist:#e1e4ea;
-
+      --gray:#bbb;
       --gradient: linear-gradient(135deg, var(--plug-teal), var(--story));
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
+      font-family:Montserrat, sans-serif;
+      background:#0d0d0d;
       color:#fff;
-      background: radial-gradient(1200px 800px at 80% 10%, rgba(123,97,255,.20), transparent 60%),
-                  radial-gradient(1000px 600px at 10% 60%, rgba(18,230,197,.18), transparent 60%),
-                  var(--ink-black);
-      font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      text-align:center;
+      padding:40px 20px;
     }
-
-    .wrap{
-      position:relative;
-      min-height:100dvh;
-      overflow:hidden;
-    }
-
-    /* Canvas background */
-    #treeCanvas{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      opacity:.35;
-      filter: blur(.2px);
-    }
-
-    header{
-      position:relative;
-      display:flex;
-      align-items:center;
-      gap:.9rem;
-      padding:18px 20px;
-    }
-    header .logo{
-      width:40px; height:40px; display:inline-grid; place-items:center;
-      border-radius:12px; background:#111;
-      box-shadow: 0 8px 24px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.04);
-    }
-    header .logo img{width:26px;height:26px;display:block}
-    header .brand{
-      font-weight:800; letter-spacing:.2px; font-size:1.15rem;
-      background:var(--gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-
-    .hero{
-      position:relative;
-      padding: clamp(28px, 5vw, 56px) 20px 32px;
-      max-width:1100px; margin:0 auto;
-    }
-    .eyebrow{
-      display:inline-block;
-      padding:6px 12px;
-      border-radius:999px;
-      font-weight:700;
-      font-size:.85rem;
-      color:#0b0b0b;
-      background: var(--gradient);
-      box-shadow: 0 6px 18px rgba(123,97,255,.35);
+    header img{
+      width:64px; height:auto; margin-bottom:10px;
     }
     h1{
-      margin:16px 0 12px;
-      font-size: clamp(36px, 7.5vw, 72px);
-      line-height:1.02;
-      font-weight:800;
+      font-size:2.5rem; font-weight:800;
+      margin:20px 0 10px;
     }
-    h1 .rise{
-      background:var(--gradient);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
+    h1 span{background:var(--gradient);-webkit-background-clip:text;color:transparent}
     .tagline{
-      font: 300 1.2rem/1.7 Merriweather, Georgia, serif;
-      color: var(--gray-mist);
-      max-width: 48ch;
-      margin: 4px 0 24px;
+      font: 300 1.2rem/1.6 Merriweather, serif;
+      color:var(--gray);
+      max-width:600px; margin:0 auto 30px;
     }
-
-    .cta{
-      display:flex; gap:10px; flex-wrap:wrap;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:14px; padding:12px;
-      max-width:680px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+    form{
+      display:flex;flex-wrap:wrap;justify-content:center;
+      gap:10px; margin-bottom:40px;
     }
-    .cta input{
-      flex:1 1 220px;
-      padding:14px 14px;
-      border-radius:10px; border:1px solid rgba(255,255,255,.08);
-      background:#0e0e10; color:#fff; outline:none;
-      font-size:1rem;
+    input{
+      padding:12px; border-radius:8px; border:none; outline:none;
+      min-width:240px; flex:1;
     }
-    .cta button{
-      flex:0 0 auto;
-      padding:14px 18px; border:0; border-radius:10px;
-      font-weight:700; color:#0b0b0b; cursor:pointer;
-      background:var(--gradient);
-      box-shadow: 0 10px 24px rgba(18,230,197,.25);
+    button{
+      padding:12px 20px; border:none; border-radius:8px;
+      font-weight:700; cursor:pointer;
+      background:var(--gradient); color:#0d0d0d;
     }
-
     .preview{
-      position:relative;
-      margin: 36px auto 80px;
-      max-width: 980px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.45);
+      background:#1a1a1a; padding:20px; border-radius:12px;
+      max-width:600px; margin:0 auto;
     }
-    .rows{height:260px;border-radius:12px;background:#0e0f12; padding:16px}
-    .row{
-      height:12px; margin:14px 0; width:100%;
-      background: linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.12));
-      border-radius:8px;
-      position:relative; overflow:hidden;
+    .bar{
+      height:12px; border-radius:6px; margin:12px auto;
+      background:linear-gradient(90deg, rgba(255,255,255,.15), rgba(255,255,255,.05));
+      max-width:90%;
     }
-    .row::after{
-      content:""; position:absolute; inset:0;
-      background: var(--gradient);
-      mix-blend-mode: lighten;
-      width: clamp(15%, 40%, 55%);
-      filter: blur(12px); opacity:.35;
-      animation: pulse 4s ease-in-out infinite;
-    }
-    .row.small{width:70%}
-    .row.tiny{width:50%}
-
-    @keyframes pulse{
-      0%,100%{transform: translateX(0)}
-      50%{transform: translateX(120%)}
-    }
-
-    footer{
-      color:#aeb4c2;
-      padding:36px 20px 60px;
-      border-top:1px solid rgba(255,255,255,.06);
-      text-align:center;
-      font: 300 0.95rem/1.8 Merriweather, Georgia, serif;
-      background: radial-gradient(800px 500px at 50% 0, rgba(123,97,255,.14), transparent 60%);
-    }
-    a{color:#cfd6ff;text-decoration:none}
-    a:hover{text-decoration:underline}
+    .bar.small{max-width:70%}
+    .bar.tiny{max-width:50%}
+    footer{margin-top:60px;font-size:.9rem;color:#888}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- subtle animated branching background -->
-    <canvas id="treeCanvas" aria-hidden="true"></canvas>
+  <header>
+    <img src="inkrise-logo.svg" alt="Inkrise logo" />
+    <h1>Where stories <span>rise</span> together</h1>
+    <p class="tagline">
+      Inkrise is a collaborative storytelling platform. Writers create branching
+      chapters, and readers vote on what rises next. A living tree of possibilities.
+    </p>
+  </header>
 
-    <header>
-      <span class="logo"><img src="inkrise-logo.svg" alt="Inkrise logo"></span>
-      <span class="brand">Inkrise</span>
-    </header>
+  <form onsubmit="event.preventDefault(); alert('Thanks! We’ll notify you when the beta opens.');">
+    <input type="email" placeholder="Enter your email to join the beta" required />
+    <button type="submit">Notify me</button>
+  </form>
 
-    <main class="hero">
-      <span class="eyebrow">Beta Waitlist</span>
-      <h1>Where stories <span class="rise">rise</span> together</h1>
-      <p class="tagline">
-        Inkrise is a collaborative storytelling platform. Writers create branching
-        chapters, and readers vote on what rises next. A living tree of possibilities.
-      </p>
+  <section class="preview">
+    <div class="bar"></div>
+    <div class="bar small"></div>
+    <div class="bar tiny"></div>
+    <div class="bar"></div>
+    <div class="bar small"></div>
+  </section>
 
-      <form class="cta" onsubmit="event.preventDefault(); alert('Thanks! We’ll be in touch when the beta opens.');">
-        <input type="email" placeholder="Enter your email to join the beta" required>
-        <button type="submit">Notify me</button>
-      </form>
+  <footer>
+    © <span id="y"></span> Inkrise · All rights reserved
+  </footer>
 
-      <section class="preview" aria-label="Story preview">
-        <div class="rows">
-          <div class="row"></div>
-          <div class="row small"></div>
-          <div class="row tiny"></div>
-          <div class="row"></div>
-          <div class="row small"></div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div>© <span id="y"></span> Inkrise · Built by storytellers, for storytellers.</div>
-      <div><a href="#">About</a> · <a href="#">Join Beta</a></div>
-    </footer>
-  </div>
-
-  <script>
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Lightweight branching tree animation (canvas)
-    (function(){
-      const cvs = document.getElementById('treeCanvas');
-      const ctx = cvs.getContext('2d');
-      let w, h, dpr;
-
-      function size(){
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        w = cvs.width = Math.floor(cvs.clientWidth * dpr);
-        h = cvs.height = Math.floor(cvs.clientHeight * dpr);
-        ctx.setTransform(dpr,0,0,dpr,0,0);
-      }
-      const onResize = () => { 
-        // ensure element size matches viewport
-        cvs.style.width = '100%'; cvs.style.height = '100%';
-        size(); 
-      };
-      window.addEventListener('resize', onResize, {passive:true});
-      onResize();
-
-      function rand(a,b){return Math.random()*(b-a)+a}
-
-      function drawBranch(x, y, len, angle, width, depth){
-        if (len < 6 || depth > 10) return;
-
-        const x2 = x + Math.cos(angle)*len;
-        const y2 = y + Math.sin(angle)*len;
-
-        const g = ctx.createLinearGradient(x,y,x2,y2);
-        g.addColorStop(0, 'rgba(18,230,197,.8)');
-        g.addColorStop(1, 'rgba(123,97,255,.8)');
-        ctx.strokeStyle = g;
-        ctx.lineWidth = width;
-        ctx.lineCap = 'round';
-
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-
-        const branches = 2 + (Math.random()>0.75 ? 1 : 0);
-        for(let i=0;i<branches;i++){
-          const newLen = len * rand(0.62, 0.78);
-          const newAngle = angle + rand(-0.9, 0.9);
-          const newWidth = Math.max(1, width * rand(0.65, 0.8));
-          drawBranch(x2, y2, newLen, newAngle, newWidth, depth+1);
-        }
-      }
-
-      let t = 0;
-      function animate(){
-        t += 0.004;
-        ctx.clearRect(0,0,w,h);
-        ctx.globalAlpha = 0.35;
-
-        // Roots (bottom center) gently drift
-        const roots = 5;
-        for(let i=0;i<roots;i++){
-          const baseX = (w/2) + Math.sin(t + i)*80;
-          const baseY = h - 20;
-          drawBranch(baseX, baseY, rand(60, 100), -Math.PI/2 + rand(-0.12, 0.12), 3.2, 0);
-        }
-        ctx.globalAlpha = 1;
-        requestAnimationFrame(animate);
-      }
-      animate();
-    })();
-  </script>
+  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
 </body>
 </html>
