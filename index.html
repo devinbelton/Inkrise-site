@@ -4,18 +4,222 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Inkrise — Where stories rise together</title>
-  <meta name="description" content="Inkrise is a collaborative storytelling platform where writers branch stories and readers vote — a living tree of possibilities."/>
+  <meta name="description" content="Inkrise is a collaborative storytelling platform where writers branch stories and readers vote."/>
   <meta name="theme-color" content="#0D0D0D"/>
 
-  <!-- Social share -->
+  <!-- Social -->
   <meta property="og:title" content="Inkrise — Where stories rise together"/>
   <meta property="og:description" content="Writers create. Readers vote. Stories branch and rise together."/>
   <meta property="og:image" content="og.png"/>
-  <meta property="og:type" content="website"/>
 
+  <!-- Favicon + Fonts -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Merriweather:ital@0;1&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
-      --ink:#0D0D0D; --
+      --ink:#0D0D0D; --panel:#0f0f11; --zinc:#1e1f22; --muted:#cfcfd4;
+      --teal:#12E5C9; --violet:#7B61FF; --grad:linear-gradient(135deg,var(--teal),var(--violet));
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--ink);color:#EDEDED}
+
+    .container{max-width:1140px;margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:40;background:#0d0d0df2;backdrop-filter:blur(8px);border-bottom:1px solid #151518}
+    .bar{display:flex;align-items:center;gap:12px;height:64px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:36px;height:36px;border-radius:10px;object-fit:contain}
+    .brand .word{font-weight:800;letter-spacing:.2px}
+
+    /* Tabs */
+    .tabs{display:flex;gap:10px;overflow:auto;padding:10px 0 14px}
+    .tab{
+      white-space:nowrap;
+      padding:10px 14px;border-radius:10px;font-weight:700;
+      border:1px solid #23242a;background:#0f0f11;color:#fff;cursor:pointer;
+      user-select:none
+    }
+    .tab[aria-selected="true"]{
+      border:none;background:var(--grad);color:#0D0D0D;
+      box-shadow:0 8px 24px rgba(18,229,201,.15),0 8px 24px rgba(123,97,255,.15)
+    }
+
+    /* Panels */
+    main{padding:28px 0}
+    .panel{display:none}
+    .panel[aria-hidden="false"]{display:block}
+
+    /* Nice cards / sections */
+    .card{background:
+      radial-gradient(80% 120% at 100% 0%, rgba(18,229,201,.18), transparent 60%),
+      radial-gradient(90% 140% at 0% 100%, rgba(123,97,255,.16), transparent 60%),
+      var(--panel);
+      border:1px solid var(--zinc);border-radius:20px;padding:24px
+    }
+    .kicker{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--grad);color:#061418;font-weight:800}
+    h1{margin:14px 0 8px;font-size:42px;line-height:1.08}
+    @media (min-width:900px){h1{font-size:62px}}
+    .rise{-webkit-background-clip:text;background-clip:text;color:transparent;background:var(--grad)}
+    .sub{font-family:"Merriweather",serif;color:var(--muted);margin:0 0 18px;max-width:70ch}
+
+    .form{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
+    .input{
+      flex:1;min-width:220px;background:#0b0b0c;border:1px solid #2b2b30;color:#ddd;
+      padding:12px 14px;border-radius:12px;outline:none
+    }
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid #2a2b2f;background:#0b0c0e;color:#fff;text-decoration:none;font-weight:600}
+    .btn.primary{border:none;background:var(--grad);color:#0D0D0D;font-weight:800}
+    .note{margin-top:8px;color:#9aa0a6;font-size:12px}
+
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .tile{background:var(--panel);border:1px solid var(--zinc);border-radius:16px;padding:16px}
+    .tile strong{display:block;margin-bottom:6px}
+
+    details{background:#0f0f11;border:1px solid #1e1f22;border-radius:12px;padding:12px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700}
+
+    footer{padding:36px 0;color:#9aa0a6;text-align:center;border-top:1px solid #151518}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container bar">
+      <div class="brand">
+        <img src="inkrise-logo.svg" alt="Inkrise logo" onerror="this.style.display='none'"/>
+        <div class="word">Inkrise</div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Clickable tabs -->
+      <div class="tabs" role="tablist" aria-label="Inkrise sections">
+        <button class="tab" role="tab" aria-selected="true"  aria-controls="panel-home"    id="tab-home"   data-tab="home">Home</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-stories" id="tab-stories" data-tab="stories">Stories</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-writers" id="tab-writers" data-tab="writers">Writers</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-how"     id="tab-how"    data-tab="how">How it works</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-faq"     id="tab-faq"    data-tab="faq">FAQ</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact"data-tab="contact">Contact</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-join"    id="tab-join"   data-tab="join">Join Beta</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="panel-home" class="panel" role="tabpanel" aria-labelledby="tab-home" aria-hidden="false">
+      <div class="card">
+        <span class="kicker">Beta Waitlist</span>
+        <h1>Where stories <span class="rise">rise</span> together</h1>
+        <p class="sub">Inkrise is a collaborative storytelling platform. Writers create branching chapters, and readers vote on what rises next — a living tree of possibilities.</p>
+
+        <form class="form" onsubmit="event.preventDefault(); alert('Thanks! We’ll email you when the beta opens.');">
+          <input class="input" type="email" placeholder="Enter your email to join the beta" required/>
+          <button class="btn primary" type="submit">Notify me</button>
+        </form>
+        <div class="note">We’ll only email you about the beta. Unsubscribe anytime.</div>
+      </div>
+    </section>
+
+    <!-- STORIES -->
+    <section id="panel-stories" class="panel" role="tabpanel" aria-labelledby="tab-stories" aria-hidden="true">
+      <h2 style="margin:0 0 14px">Stories</h2>
+      <div class="grid cols-3">
+        <div class="tile"><strong>Branching tales</strong>Explore multi-path narratives with community-chosen continuations.</div>
+        <div class="tile"><strong>Reader votes</strong>Top-voted branches rise to the surface and continue.</div>
+        <div class="tile"><strong>Discoverability</strong>Spotlights, tags, and prompts help readers find rising stories.</div>
+      </div>
+    </section>
+
+    <!-- WRITERS -->
+    <section id="panel-writers" class="panel" role="tabpanel" aria-labelledby="tab-writers" aria-hidden="true">
+      <h2 style="margin:0 0 14px">Writers</h2>
+      <div class="grid cols-3">
+        <div class="tile"><strong>Fork any chapter</strong>Spin new directions at any point in the story tree.</div>
+        <div class="tile"><strong>Creator tools</strong>Tips, subs, drafts, analytics from day one.</div>
+        <div class="tile"><strong>Grow faster</strong>Contests and spotlights designed for discovery.</div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="panel-how" class="panel" role="tabpanel" aria-labelledby="tab-how" aria-hidden="true">
+      <h2 style="margin:0 0 14px">How it works</h2>
+      <div class="grid cols-3">
+        <div class="tile"><strong>1) Start a story</strong>Create a seed chapter with a hook and at least two possible next beats.</div>
+        <div class="tile"><strong>2) Branch & vote</strong>Writers fork chapters. Readers vote weekly on which branches continue.</div>
+        <div class="tile"><strong>3) Rise & reward</strong>Top branches earn tips and unlock creator perks.</div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="panel-faq" class="panel" role="tabpanel" aria-labelledby="tab-faq" aria-hidden="true">
+      <h2 style="margin:0 0 14px">FAQ</h2>
+      <details><summary>Is Inkrise free?</summary><div>Yes for readers. Writers can earn via tips and subs when monetization launches.</div></details>
+      <details><summary>Can anyone start a story?</summary><div>Yes. You can seed a new story or branch an existing chapter (respecting content guidelines).</div></details>
+      <details><summary>How do votes work?</summary><div>Each story has voting windows. The top branch continues; others remain explore-able forks.</div></details>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="panel-contact" class="panel" role="tabpanel" aria-labelledby="tab-contact" aria-hidden="true">
+      <h2 style="margin:0 0 14px">Contact</h2>
+      <div class="tile">Need help or want to collab? Email <a href="mailto:hello@inkrise.online">hello@inkrise.online</a></div>
+    </section>
+
+    <!-- JOIN -->
+    <section id="panel-join" class="panel" role="tabpanel" aria-labelledby="tab-join" aria-hidden="true">
+      <h2 style="margin:0 0 14px">Join the Beta</h2>
+      <!-- Put your Formspree/Mailchimp endpoint in action="" when ready -->
+      <form class="form" method="POST" action="">
+        <input class="input" type="email" name="email" placeholder="Enter your email" required/>
+        <button class="btn primary" type="submit">Join Beta</button>
+      </form>
+      <div class="note">We’ll only email you about the beta. Unsubscribe anytime.</div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Inkrise — Where stories rise together
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Simple tabs
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+    function activate(tabId){
+      const name = tabId.replace('tab-','');
+      tabs.forEach(t=>{
+        const on = t.id === tabId;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach(p=>{
+        const on = p.id === `panel-${name}`;
+        p.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      history.replaceState(null, '', `#${name}`);
+    }
+
+    tabs.forEach(t=>{
+      t.addEventListener('click', ()=>activate(t.id));
+      t.addEventListener('keydown', (e)=>{
+        const i = tabs.indexOf(t);
+        if(e.key === 'ArrowRight') tabs[(i+1)%tabs.length].focus();
+        if(e.key === 'ArrowLeft')  tabs[(i-1+tabs.length)%tabs.length].focus();
+        if(e.key === 'Enter' || e.key === ' ') activate(t.id);
+      });
+    });
+
+    // deep link
+    const hash = (location.hash || '#home').replace('#','');
+    const start = document.getElementById(`tab-${hash}`) ? `tab-${hash}` : 'tab-home';
+    activate(start);
+  </script>
+</body>
+</html>
