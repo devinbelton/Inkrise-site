@@ -145,7 +145,7 @@
     <h2>Join the beta</h2>
     <p class="contact-lead">Get early access and occasional updates (no spam, ever).</p>
 
-    <form action="https://formspree.io/f/xgvnwyyn" method="POST" class="contact-form">
+    <form id="waitlist" action="https://formspree.io/f/xgvnwyyn" method="POST" class="contact-form">
       <input type="hidden" name="_redirect" value="https://inkrise.online/thank-you.html" />
       <div class="field">
         <label for="email">Email</label>
@@ -157,20 +157,50 @@
       </div>
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
       <button type="submit" class="btn btn-primary">Request invite</button>
-      <p class="form-note">We’ll only use your email to contact you about Inkrise.</p>
+      <p class="form-note" id="form-note">We’ll only use your email to contact you about Inkrise.</p>
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Inkrise. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://twitter.com/yourhandle" target="_blank" aria-label="Twitter">🐦</a>
+      <a href="https://instagram.com/yourhandle" target="_blank" aria-label="Instagram">📸</a>
+      <a href="https://facebook.com/yourhandle" target="_blank" aria-label="Facebook">📘</a>
+      <a href="https://github.com/yourhandle" target="_blank" aria-label="GitHub">💻</a>
+      <a href="https://tiktok.com/@yourhandle" target="_blank" aria-label="TikTok">🎵</a>
+    </div>
   </footer>
 
+  <!-- Menu + AJAX form -->
   <script>
     const btn = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
     btn.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    const form = document.getElementById('waitlist');
+    const note = document.getElementById('form-note');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        if (res.ok) {
+          window.location.href = '/thank-you.html';
+        } else {
+          note.textContent = 'Hmm, something went wrong. Please try again.';
+        }
+      } catch (err) {
+        note.textContent = 'Network error. Please try again.';
+      }
     });
   </script>
 </body>
