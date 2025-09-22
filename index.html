@@ -9,11 +9,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 
   <!-- Theme / Social -->
   <meta name="theme-color" content="#00c2a8" />
-  <meta name="description" content="Inkrise is a collaborative storytelling platform. Writers branch chapters, readers vote, and the best paths rise together." />
+  <meta name="description" content="Inkrise is a collaborative storytelling platform. Writers create branching chapters, and readers vote on what rises next—living story trees." />
   <meta property="og:title" content="Inkrise — Where stories rise together" />
   <meta property="og:description" content="Branching stories, reader votes, and living worlds. Join the Inkrise beta." />
   <meta property="og:image" content="og.png" />
@@ -25,22 +26,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- NAVBAR -->
-  <header class="navbar">
-    <a href="#hero" class="brand">
-      <img src="inkrise-logo.svg" alt="Inkrise logo" class="brand-mark" />
+  <header class="navbar" id="top">
+    <a href="#top" class="brand" aria-label="Inkrise home">
+      <span class="brand-badge">
+        <img src="inkrise-logo.svg" alt="Inkrise logo" class="brand-mark" />
+      </span>
       <span class="brand-name">Inkrise</span>
     </a>
 
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
-    <nav class="nav">
+    <nav class="nav" id="site-nav">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#how">How it works</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a class="cta" href="#contact">Join Beta</a></li>
+        <li><a href="#contact" class="cta">Join Beta</a></li>
       </ul>
     </nav>
   </header>
@@ -53,10 +57,12 @@
       Inkrise is a collaborative storytelling platform. Writers create branching
       chapters, and readers vote on what rises next—a living tree of possibilities.
     </p>
-
-    <a href="#contact" class="btn btn-primary">Get notified</a>
+    <p>
+      <a href="#contact" class="btn btn-primary">Get notified</a>
+    </p>
 
     <figure class="hero-card" aria-hidden="true">
+      <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
@@ -68,7 +74,7 @@
   <section id="about">
     <h2>What is Inkrise?</h2>
     <p>
-      Think of a story not as a line, but a tree. Authors write chapters and seed new
+      Think of a story not as a line, but as a tree. Authors write chapters and seed new
       branches. Readers vote on the chapter that continues the main path—while other
       branches remain open for exploration. Great ideas rise together.
     </p>
@@ -78,31 +84,77 @@
   <section id="how">
     <h2>How it works</h2>
     <div class="cards">
-      <div class="card">
-        <h3>1. Seed</h3>
-        <p>Create a new story or extend an existing one with a branching chapter.</p>
-      </div>
-      <div class="card">
-        <h3>2. Vote</h3>
-        <p>Readers vote during set windows. The highest-voted branch becomes canon.</p>
-      </div>
-      <div class="card">
-        <h3>3. Explore</h3>
-        <p>Unchosen branches remain as “what-ifs” for readers to wander and enjoy.</p>
-      </div>
+      <article class="card">
+        <h3>1) Seed</h3>
+        <p>Start a new story or add a fresh branch to an existing chapter.</p>
+      </article>
+      <article class="card">
+        <h3>2) Vote</h3>
+        <p>Readers vote within set windows. The winning branch becomes canon.</p>
+      </article>
+      <article class="card">
+        <h3>3) Rise</h3>
+        <p>Worlds grow. Side paths remain explorable for “what-ifs” and deep dives.</p>
+      </article>
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- FEATURE GRID -->
   <section id="features">
     <h2>Features</h2>
-    <ul class="feature-list">
-      <li><strong>Branching editor</strong> — Write and fork chapters with ease.</li>
-      <li><strong>Reader votes</strong> — Timeboxed voting keeps the story moving.</li>
-      <li><strong>Canon & “what-ifs”</strong> — The top branch continues; the rest live on.</li>
-      <li><strong>Creator pages</strong> — Showcase your stories and grow your audience.</li>
-      <li><strong>Clean, accessible UI</strong> — Built for phones first.</li>
-    </ul>
+    <div class="cards">
+      <article class="card">
+        <h3>Branching Chapters</h3>
+        <ul class="feature-list">
+          <li>Unlimited “what-if” side branches</li>
+          <li>Canon path updates after each vote</li>
+          <li>Explore non-canonical arcs anytime</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Reader Voting</h3>
+        <ul class="feature-list">
+          <li>Time-boxed, fair windows</li>
+          <li>Anti-spam guardrails</li>
+          <li>Transparent results</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Creator Tools</h3>
+        <ul class="feature-list">
+          <li>Simple editor, markdown friendly</li>
+          <li>Drafts &amp; collaboration</li>
+          <li>Attribution &amp; credits</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- BIG SECTIONS / “SCROLL DOWN” SHOWCASE -->
+  <section id="spotlights" class="spotlights">
+    <article class="spotlight">
+      <div class="spotlight__panel">
+        <h2>Grow living worlds</h2>
+        <p>Keep your main narrative tight while side branches unlock new perspectives.</p>
+        <a href="#contact" class="btn btn-primary">Join the beta</a>
+      </div>
+    </article>
+
+    <article class="spotlight">
+      <div class="spotlight__panel">
+        <h2>Community canon</h2>
+        <p>Readers help decide what rises—stories shaped by the people who love them.</p>
+        <a href="#features" class="btn">See features</a>
+      </div>
+    </article>
+
+    <article class="spotlight">
+      <div class="spotlight__panel">
+        <h2>Built for collaboration</h2>
+        <p>Invite co-authors, share drafts, and branch safely without losing the thread.</p>
+        <a href="#how" class="btn">How it works</a>
+      </div>
+    </article>
   </section>
 
   <!-- FAQ -->
@@ -111,64 +163,105 @@
 
     <details class="faq-item">
       <summary>Can anyone start a story?</summary>
-      <p>Yes. You can seed a new story or branch an existing chapter (respecting content guidelines).</p>
+      <p>Yes. During beta, you can seed new stories or branch existing chapters (respecting content guidelines).</p>
     </details>
 
     <details class="faq-item">
       <summary>How do votes work?</summary>
-      <p>Each story has voting windows. The top branch continues; others remain explore-able forks.</p>
+      <p>Each story has voting windows. The top branch is promoted as canon; other branches remain available to explore.</p>
     </details>
 
     <details class="faq-item">
-      <summary>Is there moderation?</summary>
-      <p>Yes—community guidelines, reporting, and creator controls keep things healthy.</p>
+      <summary>Can I collaborate?</summary>
+      <p>Yes. Invite co-authors to draft, branch, and polish chapters together.</p>
     </details>
   </section>
 
-  <!-- CONTACT (FORMSPREE) -->
+  <!-- CONTACT -->
   <section id="contact">
-    <h2>Join the beta / Contact</h2>
-    <p class="contact-lead">Want an invite or have a question? Drop your info and we’ll reach out.</p>
+    <h2>Contact</h2>
+    <p class="contact-lead">Want early access or to collaborate? Join the beta waitlist:</p>
 
-    <form class="contact-form" action="https://formspree.io/f/xgvnwyyn" method="POST">
+    <form id="waitlist" class="contact-form" method="POST">
+      <!-- Formspree endpoint is set via JS to avoid redirect and show inline success -->
+      <input type="hidden" name="_subject" value="Inkrise Beta — New signup" />
       <div class="field">
         <label for="name">Name</label>
-        <input id="name" name="name" type="text" placeholder="Your name" required />
+        <input id="name" name="name" autocomplete="name" required />
       </div>
-
       <div class="field">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="you@email.com" required />
+        <input id="email" name="email" type="email" autocomplete="email" required />
       </div>
-
       <div class="field">
         <label for="message">Message (optional)</label>
-        <textarea id="message" name="message" rows="4" placeholder="Tell us what you’d like to build…"></textarea>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us what you’re writing…"></textarea>
       </div>
 
-      <!-- Formspree honeypot to reduce spam -->
-      <input type="text" name="_gotcha" style="display:none" />
+      <!-- Honeypot -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-      <button class="btn btn-primary" type="submit">Notify me</button>
-      <p class="form-note">We’ll only email you about the beta. Unsubscribe anytime.</p>
+      <button class="btn btn-primary" type="submit">Join waitlist</button>
+      <p class="form-note" id="form-note">We’ll only use your email for Inkrise updates.</p>
     </form>
   </section>
 
   <footer>
-    <p>© <span id="year"></span> Inkrise — Where stories rise together</p>
+    © <span id="year"></span> Inkrise — Where stories rise together
   </footer>
 
+  <!-- Minimal JS: mobile menu, smooth scroll, Formspree submit -->
   <script>
-    // Mobile menu toggle
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
     const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
+    const nav = document.getElementById('site-nav');
     toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const opened = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
     });
 
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Smooth scroll for same-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Formspree (inline success message)
+    const form = document.getElementById('waitlist');
+    const note = document.getElementById('form-note');
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgvnwyyn';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+
+        if (res.ok) {
+          form.reset();
+          note.textContent = 'Thanks! You’re on the list — we’ll be in touch soon.';
+        } else {
+          note.textContent = 'Hmm, something went wrong. Please try again in a moment.';
+        }
+      } catch (err) {
+        note.textContent = 'Network error. Please try again shortly.';
+      }
+    });
   </script>
 </body>
 </html>
