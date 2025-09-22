@@ -1,12 +1,11 @@
-/* ===== Base ===== */
 :root{
   --ink-black:#0d0d0d;
   --ink-darker:#111;
   --ink-text:#f5f5f5;
   --ink-muted:#bdbdbd;
-  --plug-teal:#00c2a8;   
-  --story:#6a5cff;       
-  --violet:#9b4dff;      
+  --plug-teal:#00c2a8;
+  --story:#6a5cff;
+  --violet:#9b4dff;
   --card:#151515;
   --outline:#222;
 }
@@ -20,16 +19,11 @@ body{
   line-height:1.6;
 }
 
-/* ===== Navbar ===== */
-.navbar{
-  position:sticky; top:0; z-index:1000;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 18px;
-  background:linear-gradient(90deg,var(--plug-teal),var(--story),var(--violet));
-}
-.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+/* Navbar */
+.navbar{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:linear-gradient(90deg,var(--plug-teal),var(--story),var(--violet))}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .brand-mark{width:28px;height:28px;display:block}
-.brand-name{font-family:"Montserrat",sans-serif;font-weight:800;color:#fff;font-size:1.2rem;}
+.brand-name{font-family:"Montserrat",sans-serif;font-weight:800;color:#fff;font-size:1.2rem}
 .menu-toggle{display:none;appearance:none;border:0;background:transparent;color:#fff;font-size:1.6rem;cursor:pointer}
 .nav{display:block}
 .nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0}
@@ -37,15 +31,9 @@ body{
 .nav-links a:hover{color:var(--plug-teal)}
 .nav-links .cta{padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.14);transition:.2s}
 .nav-links .cta:hover{background:rgba(255,255,255,.22)}
-@media (max-width: 780px){
-  .menu-toggle{display:block}
-  .nav{display:none;position:absolute;left:0;right:0;top:58px;background:#0f0f0f;border-top:1px solid var(--outline)}
-  .nav.open{display:block}
-  .nav-links{flex-direction:column;padding:12px}
-  .nav-links a{padding:10px 6px}
-}
+@media(max-width:780px){.menu-toggle{display:block}.nav{display:none;position:absolute;left:0;right:0;top:58px;background:#0f0f0f;border-top:1px solid var(--outline)}.nav.open{display:block}.nav-links{flex-direction:column;padding:12px}.nav-links a{padding:10px 6px}}
 
-/* ===== Hero ===== */
+/* Hero */
 .hero{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 18px;gap:18px;background:linear-gradient(180deg,#0f0f0f,#1b1b1b)}
 .badge{display:inline-block;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,var(--plug-teal),var(--violet));color:#061314;font-weight:700;font-family:"Montserrat",sans-serif}
 .hero h1{font-family:"Montserrat",sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.5rem)}
@@ -56,24 +44,24 @@ body{
 .hero-card{margin-top:14px;width:min(820px,92vw);background:#0f0f0f;border:1px solid var(--outline);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .hero-card .bar{height:10px;margin:12px 0;border-radius:999px;background:linear-gradient(90deg,var(--plug-teal),var(--story),var(--violet));opacity:.85}
 
-/* ===== Sections ===== */
+/* Sections */
 section{padding:64px 18px;max-width:1000px;margin-inline:auto}
 h2{font-family:"Montserrat",sans-serif;font-weight:800;font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:16px;color:var(--plug-teal)}
 p{color:#d6d6d6}
 .cards{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
-@media (max-width:900px){.cards{grid-template-columns:1fr}}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--outline);border-radius:14px;padding:18px}
 .card h3{color:var(--violet);margin-bottom:6px;font-family:"Montserrat",sans-serif}
 .feature-list{margin:0;padding-left:18px}
 .feature-list li{margin:10px 0}
 
-/* ===== FAQ ===== */
+/* FAQ */
 .faq-item{background:var(--card);border:1px solid var(--outline);border-radius:12px;padding:14px;margin:10px 0}
 .faq-item summary{cursor:pointer;font-weight:700;color:#eaeaea;font-family:"Montserrat",sans-serif}
 .faq-item[open] summary{color:var(--story)}
 .faq-item p{margin-top:8px}
 
-/* ===== Contact ===== */
+/* Contact */
 #contact .contact-lead{margin-bottom:18px}
 .contact-form{background:var(--card);border:1px solid var(--outline);border-radius:16px;padding:18px;max-width:640px}
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
@@ -82,5 +70,8 @@ input,textarea{background:#0f0f0f;color:#f3f3f3;border:1px solid #262626;border-
 input:focus,textarea:focus{border-color:var(--plug-teal);box-shadow:0 0 0 3px rgba(0,194,168,.18)}
 .form-note{color:var(--muted);font-size:.95rem;margin-top:6px}
 
-/* ===== Footer ===== */
+/* Footer + Socials */
 footer{text-align:center;padding:20px;color:#8e8e8e;border-top:1px solid var(--outline);background:var(--ink-darker)}
+.social-links{margin-top:12px;display:flex;justify-content:center;gap:18px;font-size:1.4rem}
+.social-links a{color:var(--muted);text-decoration:none;transition:color .2s}
+.social-links a:hover{color:var(--plug-teal)}
