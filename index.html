@@ -1,348 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inkrise — Where stories rise together</title>
-  <meta name="description" content="Inkrise is a collaborative storytelling platform where writers branch stories and readers vote — a living tree of possibilities."/>
-  <meta name="theme-color" content="#0D0D0D"/>
 
-  <!-- Canonical (points to your custom domain) -->
-  <link rel="canonical" href="https://inkrise.online/"/>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-  <!-- Social share -->
-  <meta property="og:title" content="Inkrise — Where stories rise together"/>
-  <meta property="og:description" content="Writers create. Readers vote. Stories branch and rise together."/>
-  <meta property="og:image" content="og.png"/>
-  <meta property="og:type" content="website"/>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Merriweather:ital@0;1&display=swap" rel="stylesheet"/>
+  <!-- Theme / Social -->
+  <meta name="theme-color" content="#00c2a8" />
+  <meta name="description" content="Inkrise is a collaborative storytelling platform. Writers branch chapters, readers vote, and the best paths rise together." />
+  <meta property="og:title" content="Inkrise — Where stories rise together" />
+  <meta property="og:description" content="Branching stories, reader votes, and living worlds. Join the Inkrise beta." />
+  <meta property="og:image" content="og.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://inkrise.online/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <style>
-    :root{
-      --ink:#0D0D0D; --panel:#0f0f11; --zinc:#1e1f22; --muted:#cfcfd4;
-      --teal:#12E5C9; --violet:#7B61FF; --grad:linear-gradient(135deg,var(--teal),var(--violet));
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    html,body{margin:0}
-    body{font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--ink);color:#EDEDED}
-
-    .container{max-width:1140px;margin:0 auto;padding:0 20px}
-    a{color:#cfd6ff;text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* Header + Tabs */
-    header{position:sticky;top:0;z-index:50;background:#0d0d0df2;backdrop-filter:blur(8px);border-bottom:1px solid #151518}
-    .nav{display:flex;align-items:center;gap:12px;height:64px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{width:36px;height:36px;border-radius:10px;object-fit:contain}
-    .brand .word{font-weight:800;letter-spacing:.2px}
-    .tabs{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-    .tab{padding:8px 12px;border-radius:10px;border:1px solid #23242a;background:#0f0f11;color:#fff;font-weight:600}
-    .tab.primary{border:none;background:var(--grad);color:#0D0D0D;font-weight:800}
-    .tab.active{border:none;background:var(--grad);color:#0D0D0D;box-shadow:0 8px 24px rgba(18,229,201,.15),0 8px 24px rgba(123,97,255,.15)}
-    .hamburger{display:none;margin-left:auto;border:1px solid #23242a;background:#0f0f11;color:#fff;border-radius:10px;padding:8px 10px}
-    @media (max-width:900px){
-      .tabs{display:none}
-      .hamburger{display:block}
-      #mobileTabs{display:none}
-      #mobileTabs.open{display:flex;flex-direction:column;gap:8px;padding:10px;background:#0f0f11;border:1px solid #23242a;border-radius:12px;margin:8px 0}
-    }
-
-    /* Sections */
-    section{scroll-margin-top:84px}
-    .hero{padding:48px 0}
-    .card{
-      background:
-        radial-gradient(80% 120% at 100% 0%, rgba(18,229,201,.18), transparent 60%),
-        radial-gradient(90% 140% at 0% 100%, rgba(123,97,255,.16), transparent 60%),
-        var(--panel);
-      border:1px solid var(--zinc);border-radius:20px;padding:24px
-    }
-    .kicker{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--grad);color:#061418;font-weight:800}
-    h1{margin:14px 0 8px;font-size:44px;line-height:1.08}
-    @media (min-width:900px){h1{font-size:62px}}
-    .rise{-webkit-background-clip:text;background-clip:text;color:transparent;background:var(--grad)}
-    .sub{font-family:"Merriweather",serif;color:var(--muted);margin:0 0 18px;max-width:70ch}
-    .form{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px}
-    .input{
-      flex:1;min-width:220px;background:#0b0b0c;border:1px solid #2b2b30;color:#ddd;
-      padding:12px 14px;border-radius:12px;outline:none
-    }
-    .btn{padding:12px 16px;border-radius:12px;border:1px solid #2a2b2f;background:#0b0c0e;color:#fff;font-weight:600;cursor:pointer}
-    .btn.primary{border:none;background:var(--grad);color:#0D0D0D;font-weight:800}
-    .note{margin-top:8px;color:#9aa0a6;font-size:12px}
-
-    .section{padding:56px 0;border-top:1px solid #151518}
-    .grid{display:grid;gap:16px}
-    @media (min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    .tile{background:var(--panel);border:1px solid var(--zinc);border-radius:16px;padding:16px}
-    .tile strong{display:block;margin-bottom:6px}
-
-    .steps{display:grid;gap:16px}
-    @media (min-width:900px){.steps{grid-template-columns:repeat(3,1fr)}}
-    .step{background:var(--panel);border:1px solid var(--zinc);border-radius:16px;padding:18px}
-    .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:999px;background:var(--grad);color:#0d0d0d;font-weight:800;margin-right:8px}
-
-    details{background:#0f0f11;border:1px solid #1e1f22;border-radius:12px;padding:12px}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:700}
-
-    .contact{background:var(--panel);border:1px solid var(--zinc);border-radius:16px;padding:20px}
-
-    footer{padding:36px 0;color:#9aa0a6;text-align:center;border-top:1px solid #151518}
-    .top{position:fixed;right:18px;bottom:18px;border:none;border-radius:999px;padding:10px 12px;background:var(--grad);color:#0d0d0d;font-weight:800;display:none}
-    .top.show{display:block}
-
-    /* Success Modal */
-    .modal-backdrop{
-      position:fixed; inset:0; display:none;
-      align-items:center; justify-content:center; z-index:100;
-      background:rgba(0,0,0,.6);
-    }
-    .modal{
-      width:min(560px,92vw);
-      background:#0f1114; color:#EDEDED;
-      border:1px solid #22252b; border-radius:16px; padding:20px; text-align:center;
-      box-shadow:0 30px 80px rgba(0,0,0,.55)
-    }
-    .modal h3{margin:0 0 8px; font-weight:800}
-    .modal p{color:#cfd3da; margin:0 0 14px; font-family:"Merriweather",serif}
-
-    /* Footer helper note */
-    .site-note{margin-top:10px; font-size:12px; color:#aab1bc}
-    .dns{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; color:#cfd6ff}
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Sticky header with tabs -->
-  <header>
-    <div class="container">
-      <div class="nav">
-        <div class="brand">
-          <img src="inkrise-logo.svg" alt="Inkrise logo" onerror="this.style.display='none'"/>
-          <div class="word">Inkrise</div>
-        </div>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#hero" class="brand">
+      <img src="inkrise-logo.svg" alt="Inkrise logo" class="brand-mark" />
+      <span class="brand-name">Inkrise</span>
+    </a>
 
-        <nav class="tabs" id="tabs">
-          <a class="tab active" href="#home">Home</a>
-          <a class="tab" href="#stories">Stories</a>
-          <a class="tab" href="#writers">Writers</a>
-          <a class="tab" href="#how">How it works</a>
-          <a class="tab" href="#faq">FAQ</a>
-          <a class="tab" href="#contact">Contact</a>
-          <a class="tab primary" href="#signup">Join Beta</a>
-        </nav>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
-        <button id="menu" class="hamburger">☰ Menu</button>
-      </div>
-      <nav id="mobileTabs"></nav>
-    </div>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="cta" href="#contact">Join Beta</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- BIG SCROLL SECTIONS -->
-  <main>
-    <section id="home" class="container hero">
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <p class="badge">Beta Waitlist</p>
+    <h1>Where stories <span class="accent">rise</span> together</h1>
+    <p class="hero-sub">
+      Inkrise is a collaborative storytelling platform. Writers create branching
+      chapters, and readers vote on what rises next—a living tree of possibilities.
+    </p>
+
+    <a href="#contact" class="btn btn-primary">Get notified</a>
+
+    <figure class="hero-card" aria-hidden="true">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </figure>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>What is Inkrise?</h2>
+    <p>
+      Think of a story not as a line, but a tree. Authors write chapters and seed new
+      branches. Readers vote on the chapter that continues the main path—while other
+      branches remain open for exploration. Great ideas rise together.
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <h2>How it works</h2>
+    <div class="cards">
       <div class="card">
-        <span class="kicker">Beta Waitlist</span>
-        <h1>Where stories <span class="rise">rise</span> together</h1>
-        <p class="sub">
-          Inkrise is a collaborative storytelling platform. Writers create branching chapters,
-          and readers vote on what rises next — a living tree of possibilities.
-        </p>
-
-        <!-- Email form -->
-        <form id="signup" class="form" method="POST" action="">
-          <input class="input" type="email" name="email" placeholder="Enter your email to join the beta" required/>
-          <button class="btn primary" type="submit">Join Beta</button>
-        </form>
-        <div class="note">We’ll only email you about the beta. Unsubscribe anytime.</div>
+        <h3>1. Seed</h3>
+        <p>Create a new story or extend an existing one with a branching chapter.</p>
       </div>
-    </section>
-
-    <section id="stories" class="section">
-      <div class="container">
-        <h2 style="margin:0 0 16px">Stories</h2>
-        <div class="grid cols-3">
-          <div class="tile"><strong>Branching tales</strong>Explore multi-path narratives with community-chosen continuations.</div>
-          <div class="tile"><strong>Reader votes</strong>Top-voted branches rise to the surface and continue.</div>
-          <div class="tile"><strong>Discoverability</strong>Spotlights, tags, and prompts help readers find rising stories.</div>
-        </div>
+      <div class="card">
+        <h3>2. Vote</h3>
+        <p>Readers vote during set windows. The highest-voted branch becomes canon.</p>
       </div>
-    </section>
-
-    <section id="writers" class="section">
-      <div class="container">
-        <h2 style="margin:0 0 16px">Writers</h2>
-        <div class="grid cols-3">
-          <div class="tile"><strong>Fork any chapter</strong>Spin new directions at any point in the story tree.</div>
-          <div class="tile"><strong>Creator tools</strong>Tips, subs, drafts, analytics from day one.</div>
-          <div class="tile"><strong>Grow faster</strong>Contests and spotlights designed for discovery.</div>
-        </div>
+      <div class="card">
+        <h3>3. Explore</h3>
+        <p>Unchosen branches remain as “what-ifs” for readers to wander and enjoy.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="how" class="section">
-      <div class="container">
-        <h2 style="margin:0 0 16px">How it works</h2>
-        <div class="steps">
-          <div class="step"><span class="num">1</span><strong>Start a story</strong><br/>Create a seed chapter with a hook and at least two possible next beats.</div>
-          <div class="step"><span class="num">2</span><strong>Branch & vote</strong><br/>Writers fork chapters. Readers vote weekly on which branches continue.</div>
-          <div class="step"><span class="num">3</span><strong>Rise & reward</strong><br/>Top branches earn tips and unlock creator perks.</div>
-        </div>
-      </div>
-    </section>
+  <!-- FEATURES -->
+  <section id="features">
+    <h2>Features</h2>
+    <ul class="feature-list">
+      <li><strong>Branching editor</strong> — Write and fork chapters with ease.</li>
+      <li><strong>Reader votes</strong> — Timeboxed voting keeps the story moving.</li>
+      <li><strong>Canon & “what-ifs”</strong> — The top branch continues; the rest live on.</li>
+      <li><strong>Creator pages</strong> — Showcase your stories and grow your audience.</li>
+      <li><strong>Clean, accessible UI</strong> — Built for phones first.</li>
+    </ul>
+  </section>
 
-    <section id="faq" class="section">
-      <div class="container">
-        <h2 style="margin:0 0 16px">FAQ</h2>
-        <details><summary>Is Inkrise free?</summary><div>Yes for readers. Writers can earn via tips and subs when monetization launches.</div></details>
-        <details><summary>Can anyone start a story?</summary><div>Yes. You can seed a new story or branch an existing chapter (respecting content guidelines).</div></details>
-        <details><summary>How do votes work?</summary><div>Each story has voting windows. The top branch continues; others remain explore-able forks.</div></details>
-      </div>
-    </section>
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>FAQ</h2>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 style="margin:0 0 16px">Contact</h2>
-        <div class="contact">
-          Need help or want to collab? Email <a href="mailto:hello@inkrise.online">hello@inkrise.online</a>
-        </div>
+    <details class="faq-item">
+      <summary>Can anyone start a story?</summary>
+      <p>Yes. You can seed a new story or branch an existing chapter (respecting content guidelines).</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>How do votes work?</summary>
+      <p>Each story has voting windows. The top branch continues; others remain explore-able forks.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is there moderation?</summary>
+      <p>Yes—community guidelines, reporting, and creator controls keep things healthy.</p>
+    </details>
+  </section>
+
+  <!-- CONTACT (FORMSPREE) -->
+  <section id="contact">
+    <h2>Join the beta / Contact</h2>
+    <p class="contact-lead">Want an invite or have a question? Drop your info and we’ll reach out.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/xgvnwyyn" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required />
       </div>
-    </section>
-  </main>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@email.com" required />
+      </div>
+
+      <div class="field">
+        <label for="message">Message (optional)</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us what you’d like to build…"></textarea>
+      </div>
+
+      <!-- Formspree honeypot to reduce spam -->
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <button class="btn btn-primary" type="submit">Notify me</button>
+      <p class="form-note">We’ll only email you about the beta. Unsubscribe anytime.</p>
+    </form>
+  </section>
 
   <footer>
-    © <span id="y"></span> Inkrise — Where stories rise together
-
-    <!-- Compact domain helper (hidden to most users unless they open it) -->
-    <details class="site-note" id="siteinfo">
-      <summary>Site info</summary>
-      <div id="domain-status" style="margin:8px 0 10px"></div>
-      <div class="dns">
-        <div><strong>DNS (root @ → A):</strong></div>
-        <div>185.199.108.153</div>
-        <div>185.199.109.153</div>
-        <div>185.199.110.153</div>
-        <div>185.199.111.153</div>
-        <div style="margin-top:6px"><strong>CNAME (www →):</strong> devinbelton.github.io</div>
-        <div style="margin-top:6px"><strong>GitHub Pages → Custom domain:</strong> inkrise.online</div>
-        <div style="margin-top:6px"><strong>After it’s live:</strong> enable “Enforce HTTPS” in GitHub Pages.</div>
-      </div>
-    </details>
+    <p>© <span id="year"></span> Inkrise — Where stories rise together</p>
   </footer>
 
-  <button id="top" class="top" aria-label="Back to top">↑</button>
-
-  <!-- Success Modal -->
-  <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal">
-      <h3 id="modal-title">You’re on the list 🎉</h3>
-      <p>Thanks for joining the Inkrise beta. We’ll email you when it’s ready.</p>
-      <button id="modal-close" class="btn primary" type="button">Close</button>
-    </div>
-  </div>
-
   <script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
     // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Mobile menu clone
-    const menu = document.getElementById('menu');
-    const tabs = document.getElementById('tabs');
-    const mobileTabs = document.getElementById('mobileTabs');
-    function closeMobile(){ mobileTabs.classList.remove('open'); mobileTabs.innerHTML=''; }
-    if(menu){
-      menu.addEventListener('click', ()=>{
-        if(mobileTabs.classList.contains('open')){ closeMobile(); return; }
-        mobileTabs.className = 'tabs open';
-        mobileTabs.innerHTML = tabs.innerHTML;
-      });
-      document.addEventListener('click', (e)=>{
-        if(mobileTabs.contains(e.target) || e.target===menu) return;
-        if(mobileTabs.classList.contains('open')) closeMobile();
-      });
-    }
-
-    // Scroll spy (highlight active tab)
-    const sections = ['home','stories','writers','how','faq','contact','signup'];
-    const tabEls = {};
-    [...document.querySelectorAll('.tabs a')].forEach(a=>{ tabEls[a.getAttribute('href').slice(1)] = a; });
-    function setActive(id){
-      [...document.querySelectorAll('.tabs a')].forEach(a=>a.classList.remove('active'));
-      if(tabEls[id]) tabEls[id].classList.add('active');
-    }
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          setActive(entry.target.id);
-          if (entry.target.id !== 'home') history.replaceState(null,'','#'+entry.target.id);
-        }
-      });
-    }, {root:null, rootMargin:'-50% 0px -45% 0px', threshold:0});
-    sections.forEach(id=>{
-      const el = document.getElementById(id);
-      if(el) io.observe(el);
-    });
-
-    // Back-to-top button
-    const topBtn = document.getElementById('top');
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 300) topBtn.classList.add('show'); else topBtn.classList.remove('show');
-    });
-    topBtn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-    // ------- Formspree hookup + success modal (using YOUR endpoint) -------
-    const FORMSPREE = "https://formspree.io/f/xgvnwyyn"; // your endpoint
-
-    const formEl = document.getElementById('signup');
-    const modal = document.getElementById('modal');
-    const modalClose = document.getElementById('modal-close');
-
-    function openModal(){ modal.style.display='flex'; modal.setAttribute('aria-hidden','false'); }
-    function closeModal(){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); }
-
-    if (modalClose) {
-      modalClose.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-    }
-
-    formEl.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(formEl);
-      data.append("_subject", "New Inkrise Beta signup");
-      try {
-        const res = await fetch(FORMSPREE, {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: data
-        });
-        if (res.ok) {
-          formEl.reset();
-          openModal();
-        } else {
-          const err = await res.json().catch(()=>({}));
-          alert(err?.errors?.[0]?.message || "Hmm, something went wrong. Try again.");
-        }
-      } catch (err) {
-        alert("Network error — please try again.");
-      }
-    });
-
-    // ------- Footer site info status -------
-    (function(){
-      const el = document.getElementById('domain-status');
-      if(!el) return;
-      const host = location.hostname;
-      if(host === 'inkrise.online' || host.endsWith('.inkrise.online')){
-        el.textContent = 'Custom domain active ✅ (inkrise.online)';
-      } else {
-        el.textContent = 'Custom domain pending — point inkrise.online DNS to GitHub Pages (see records below).';
-      }
-    })();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
