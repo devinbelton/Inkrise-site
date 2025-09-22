@@ -1,102 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Inkrise — Where stories rise together</title>
+  <meta name="description" content="Inkrise is a collaborative storytelling platform where writers branch stories and readers vote — a living tree of possibilities."/>
+  <meta name="theme-color" content="#0D0D0D"/>
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <!-- Social share -->
+  <meta property="og:title" content="Inkrise — Where stories rise together"/>
+  <meta property="og:description" content="Writers create. Readers vote. Stories branch and rise together."/>
+  <meta property="og:image" content="og.png"/>
+  <meta property="og:type" content="website"/>
 
-  <meta property="og:title" content="Inkrise" />
-  <meta property="og:description" content="Where stories rise together." />
-  <meta property="og:image" content="og.png" />
-  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
-      --plug-teal:#12e6c5;
-      --story:#7b61ff;
-      --gray:#bbb;
-      --gradient: linear-gradient(135deg, var(--plug-teal), var(--story));
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Montserrat, sans-serif;
-      background:#0d0d0d;
-      color:#fff;
-      text-align:center;
-      padding:40px 20px;
-    }
-    header img{
-      width:64px; height:auto; margin-bottom:10px;
-    }
-    h1{
-      font-size:2.5rem; font-weight:800;
-      margin:20px 0 10px;
-    }
-    h1 span{background:var(--gradient);-webkit-background-clip:text;color:transparent}
-    .tagline{
-      font: 300 1.2rem/1.6 Merriweather, serif;
-      color:var(--gray);
-      max-width:600px; margin:0 auto 30px;
-    }
-    form{
-      display:flex;flex-wrap:wrap;justify-content:center;
-      gap:10px; margin-bottom:40px;
-    }
-    input{
-      padding:12px; border-radius:8px; border:none; outline:none;
-      min-width:240px; flex:1;
-    }
-    button{
-      padding:12px 20px; border:none; border-radius:8px;
-      font-weight:700; cursor:pointer;
-      background:var(--gradient); color:#0d0d0d;
-    }
-    .preview{
-      background:#1a1a1a; padding:20px; border-radius:12px;
-      max-width:600px; margin:0 auto;
-    }
-    .bar{
-      height:12px; border-radius:6px; margin:12px auto;
-      background:linear-gradient(90deg, rgba(255,255,255,.15), rgba(255,255,255,.05));
-      max-width:90%;
-    }
-    .bar.small{max-width:70%}
-    .bar.tiny{max-width:50%}
-    footer{margin-top:60px;font-size:.9rem;color:#888}
-  </style>
-</head>
-<body>
-  <header>
-    <img src="inkrise-logo.svg" alt="Inkrise logo" />
-    <h1>Where stories <span>rise</span> together</h1>
-    <p class="tagline">
-      Inkrise is a collaborative storytelling platform. Writers create branching
-      chapters, and readers vote on what rises next. A living tree of possibilities.
-    </p>
-  </header>
-
-  <form onsubmit="event.preventDefault(); alert('Thanks! We’ll notify you when the beta opens.');">
-    <input type="email" placeholder="Enter your email to join the beta" required />
-    <button type="submit">Notify me</button>
-  </form>
-
-  <section class="preview">
-    <div class="bar"></div>
-    <div class="bar small"></div>
-    <div class="bar tiny"></div>
-    <div class="bar"></div>
-    <div class="bar small"></div>
-  </section>
-
-  <footer>
-    © <span id="y"></span> Inkrise · All rights reserved
-  </footer>
-
-  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
-</body>
-</html>
+      --ink:#0D0D0D; --
