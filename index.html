@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inkrise — Where stories rise together</title>
 
-  <!-- Favicon -->
+  <!-- Favicons & Manifest (you already have these files in the repo) -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="manifest" href="site.webmanifest" />
 
   <!-- Theme / SEO -->
   <meta name="theme-color" content="#00c2a8" />
-  <meta name="description" content="Inkrise is a collaborative storytelling platform. Writers branch chapters, readers vote, stories evolve." />
+  <meta name="description" content="Inkrise is a collaborative storytelling platform. Writers branch chapters, readers vote, and living worlds rise together." />
   <meta property="og:title" content="Inkrise — Where stories rise together" />
   <meta property="og:description" content="Branching stories, reader votes, and living worlds. Join the Inkrise beta." />
   <meta property="og:image" content="og.png" />
@@ -21,27 +20,30 @@
   <meta property="og:url" content="https://inkrise.online/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Fonts (optional; you can remove if you want zero externals) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- NAVBAR -->
   <header class="navbar">
-    <a href="index.html" class="brand">
+    <a href="#hero" class="brand">
       <img src="inkrise-logo.svg" alt="Inkrise logo" class="brand-mark" />
       <span class="brand-name">Inkrise</span>
     </a>
+
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    <nav class="nav">
+
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#how">How it works</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact" class="cta">Join Beta</a></li>
+        <li><a class="cta" href="#contact">Join Beta</a></li>
       </ul>
     </nav>
   </header>
@@ -50,9 +52,14 @@
   <section id="hero" class="hero">
     <p class="badge">Beta Waitlist</p>
     <h1>Where stories <span class="accent">rise</span> together</h1>
-    <p class="hero-sub">Inkrise is a collaborative storytelling platform. Writers create branching chapters, and readers vote on what rises next—a living tree of possibilities.</p>
+    <p class="hero-sub">
+      Inkrise is a collaborative storytelling platform. Writers create branching
+      chapters, and readers vote on what rises next—a living tree of possibilities.
+    </p>
     <a href="#contact" class="btn btn-primary">Get notified</a>
+
     <figure class="hero-card" aria-hidden="true">
+      <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
@@ -63,7 +70,30 @@
   <!-- ABOUT -->
   <section id="about">
     <h2>What is Inkrise?</h2>
-    <p>Think of a story not as a line, but as a tree. Authors write chapters and seed new branches. Readers vote on the chapter that continues the main path—while other branches remain open for exploration. Great ideas rise together.</p>
+    <p>
+      Think of a story not as a line, but as a tree. Authors write chapters and seed new
+      branches. Readers vote on the chapter that continues the main path—while other
+      branches remain open for exploration. Great ideas rise together.
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <h2>How it works</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>1. Seed</h3>
+        <p>Start a world or a chapter. Set the tone, genre, and rules of the story.</p>
+      </div>
+      <div class="card">
+        <h3>2. Branch</h3>
+        <p>Authors propose next-chapters. Each proposal becomes a branch on the story tree.</p>
+      </div>
+      <div class="card">
+        <h3>3. Vote</h3>
+        <p>Readers vote on what rises. The winning branch becomes canon; others remain explorable.</p>
+      </div>
+    </div>
   </section>
 
   <!-- FEATURES -->
@@ -76,11 +106,15 @@
       </div>
       <div class="card">
         <h3>Reader Votes</h3>
-        <p>Readers decide what rises next by voting on active branches.</p>
+        <p>Periodic voting windows decide the canon path forward.</p>
       </div>
       <div class="card">
-        <h3>Collaborative Worldbuilding</h3>
-        <p>Writers and readers build worlds together through interaction.</p>
+        <h3>Creator Tools</h3>
+        <ul class="feature-list">
+          <li>Draft &amp; branch proposals</li>
+          <li>Lightweight collaboration</li>
+          <li>Story rules &amp; lore notes</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -88,31 +122,43 @@
   <!-- FAQ -->
   <section id="faq">
     <h2>FAQ</h2>
+
     <details class="faq-item">
       <summary>Can anyone start a story?</summary>
-      <p>Yes. You can seed a new story or branch an existing chapter (while respecting content guidelines).</p>
+      <p>Yes. You can seed a new story or branch an existing chapter (respecting content guidelines).</p>
     </details>
+
     <details class="faq-item">
       <summary>How do votes work?</summary>
-      <p>Each story has voting windows. The top branch continues; others remain open for exploration.</p>
+      <p>Each story has voting windows. The top branch continues; others remain explore-able forks.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is Inkrise free?</summary>
+      <p>During beta, yes. We’ll share plans and pricing later—focused on supporting writers.</p>
     </details>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT / JOIN BETA (Formspree) -->
   <section id="contact">
     <h2>Join the beta</h2>
     <p class="contact-lead">Get early access and occasional updates (no spam, ever).</p>
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+    <form action="https://formspree.io/f/xgvnwyyn" method="POST" class="contact-form">
       <div class="field">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" required placeholder="you@example.com">
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
       </div>
+
       <div class="field">
         <label for="message">What would you like to see on Inkrise? (optional)</label>
-        <textarea name="message" id="message" rows="4" placeholder="Tell us the kind of stories or tools you want."></textarea>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us the kind of stories or tools you want."></textarea>
       </div>
-      <!-- Redirect to thank-you.html after success -->
-      <input type="hidden" name="_next" value="https://inkrise.online/thank-you.html">
+
+      <!-- Redirect to your local page after submit (hides vendor pages) -->
+      <input type="hidden" name="_redirect" value="thank-you.html">
+      <input type="hidden" name="_subject" value="Inkrise beta request">
+
       <button type="submit" class="btn btn-primary">Request invite</button>
       <p class="form-note">We’ll only use your email to contact you about Inkrise.</p>
     </form>
@@ -121,12 +167,19 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2025 Inkrise. All rights reserved.</p>
-    <div class="socials">
-      <a href="https://twitter.com/devinbelton" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://instagram.com/devin.official.ig" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/devinbelton" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:hello@inkrise.online" target="_blank"><i class="fas fa-envelope"></i></a>
-    </div>
+    <p aria-hidden="true">🕊️ 📸 📘 💻 🎵</p>
   </footer>
+
+  <!-- Menu toggle (no frameworks) -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
