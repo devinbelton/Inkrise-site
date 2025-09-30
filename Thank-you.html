@@ -4,25 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You — Inkrise</title>
+  <meta http-equiv="refresh" content="5;url=index.html" />
   <style>
+    :root {
+      --ink-black:#0d0d0d;
+      --plug-teal:#00c2a8;
+      --story:#6a5cff;
+      --violet:#9b4dff;
+    }
     body {
-      background: #0d0d0d;
-      color: #f5f5f5;
-      font-family: "Montserrat", sans-serif;
+      margin: 0;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      background: linear-gradient(135deg, var(--plug-teal), var(--story), var(--violet));
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
       text-align: center;
     }
-    h1 { color: #00c2a8; }
+    .card {
+      background: rgba(0,0,0,0.6);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 500px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+    .card img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, var(--plug-teal), var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #e6e6e6;
+    }
+    a {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: #fff;
+      color: #0d0d0d;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    a:hover {
+      background: var(--plug-teal);
+      color: #fff;
+    }
   </style>
 </head>
 <body>
-  <div>
+  <div class="card">
+    <img src="logo.svg" alt="Inkrise Logo"/>
     <h1>🎉 Thank You!</h1>
     <p>Your message has been sent. We’ll get back to you soon.</p>
-    <a href="index.html" style="color:#9b4dff; font-weight:600;">← Return to Inkrise</a>
+    <p><em>Redirecting you back to Inkrise in 5 seconds...</em></p>
+    <a href="index.html">← Return to Inkrise now</a>
   </div>
 </body>
 </html>
