@@ -5,204 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inkrise — Where Stories Rise Together</title>
 
-  <!-- Font Awesome for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Meta Description -->
+  <meta name="description" content="Inkrise is a collaborative storytelling platform where writers and readers create branching stories, vote on directions, and build worlds together." />
 
-  <style>
-    /* ===== Base ===== */
-    :root{
-      --ink-black:#0d0d0d;
-      --ink-darker:#111;
-      --ink-text:#f5f5f5;
-      --ink-muted:#bdbdbd;
-      --plug-teal:#00c2a8;
-      --story:#6a5cff;
-      --violet:#9b4dff;
-      --card:#151515;
-      --outline:#222;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{background:var(--ink-black);color:var(--ink-text);font-family:"Merriweather",serif;line-height:1.6}
+  <!-- Open Graph -->
+  <meta property="og:title" content="Inkrise — Where Stories Rise Together" />
+  <meta property="og:description" content="Collaborative storytelling with branching plots and community voting." />
+  <meta property="og:image" content="https://inkrise.online/og-image.png" />
+  <meta property="og:url" content="https://inkrise.online" />
+  <meta property="og:type" content="website" />
 
-    /* ===== Navbar ===== */
-    .navbar{
-      position:sticky; top:0; z-index:1000;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 18px;
-      background:linear-gradient(90deg,var(--plug-teal),var(--story),var(--violet));
-    }
-    .brand-name{font-family:"Montserrat",sans-serif;font-weight:800;color:#fff;font-size:1.2rem}
-    .nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0}
-    .nav-links a{color:#fff;text-decoration:none;font-weight:600}
-    .nav-links a:hover{color:var(--plug-teal)}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Inkrise — Where Stories Rise Together" />
+  <meta name="twitter:description" content="Collaborative storytelling with branching plots and community voting." />
+  <meta name="twitter:image" content="https://inkrise.online/og-image.png" />
 
-    /* ===== Hero ===== */
-    .hero{
-      min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;padding:56px 18px;gap:18px;background:linear-gradient(180deg,#0f0f0f,#1b1b1b)
-    }
-    .hero h1{font-family:"Montserrat",sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.5rem)}
-    .accent{background:linear-gradient(90deg,var(--plug-teal),var(--story),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero-sub{max-width:780px;color:#cfcfcf}
-    .btn{display:inline-block;text-decoration:none;font-weight:700;font-family:"Montserrat",sans-serif;border-radius:14px;padding:12px 18px}
-    .btn-primary{color:#061314;background:linear-gradient(90deg,var(--plug-teal),var(--story),var(--violet))}
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-    /* ===== Sections ===== */
-    section{padding:64px 18px;max-width:1000px;margin-inline:auto}
-    h2{font-family:"Montserrat",sans-serif;font-weight:800;font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:16px;color:var(--plug-teal)}
-    p{color:#d6d6d6}
-    .cards{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.cards{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--outline);border-radius:14px;padding:18px}
-    .card h3{color:var(--violet);margin-bottom:6px}
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Merriweather&display=swap" rel="stylesheet"/>
 
-    /* ===== FAQ ===== */
-    .faq-item{background:var(--card);border:1px solid var(--outline);border-radius:12px;padding:14px;margin:10px 0}
-    .faq-item summary{cursor:pointer;font-weight:700;color:#eaeaea}
-    .faq-item[open] summary{color:var(--story)}
-
-    /* ===== Contact ===== */
-    #contact .contact-lead{margin-bottom:18px}
-    .contact-form{background:var(--card);border:1px solid var(--outline);border-radius:16px;padding:18px;max-width:640px}
-    .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-    label{font-weight:700;color:#e8e8e8}
-    input,textarea{background:#0f0f0f;color:#f3f3f3;border:1px solid #262626;border-radius:10px;padding:12px;font:inherit}
-    input:focus,textarea:focus{border-color:var(--plug-teal);box-shadow:0 0 0 3px rgba(0,194,168,.18)}
-
-    /* ===== Footer + Socials ===== */
-    footer{text-align:center;padding:24px;color:#8e8e8e;border-top:1px solid var(--outline);background:var(--ink-darker)}
-    footer .socials{margin-top:10px}
-
-    /* Brand colors default */
-    footer .socials a{
-      font-size:1.8rem;margin:0 10px;text-decoration:none;display:inline-block;
-      transition:transform .35s ease, filter .35s ease, color .35s ease; 
-      opacity:0; transform:translateY(14px); /* start hidden for entrance */
-    }
-    .fa-instagram{color:#E4405F}
-    .fa-twitter{color:#1DA1F2}
-    .fa-facebook{color:#1877F2}
-    .fa-tiktok{color:#000}
-    .fa-linkedin{color:#0A66C2}
-    .fa-youtube{color:#FF0000}
-
-    /* Hover glow: swap to Inkrise gradient via text clipping + glow */
-    footer .socials a:hover{
-      transform:translateY(-2px) scale(1.15);
-      color:transparent;
-      background:linear-gradient(90deg,var(--plug-teal),var(--story),var(--violet));
-      -webkit-background-clip:text;background-clip:text;
-      filter:drop-shadow(0 0 8px rgba(155,77,255,.6));
-    }
-
-    /* Entrance animation (staggered) */
-    @keyframes riseIn {
-      0% {opacity:0; transform:translateY(14px)}
-      100% {opacity:1; transform:translateY(0)}
-    }
-    footer .socials a:nth-child(1){animation:riseIn .6s .05s both ease-out}
-    footer .socials a:nth-child(2){animation:riseIn .6s .15s both ease-out}
-    footer .socials a:nth-child(3){animation:riseIn .6s .25s both ease-out}
-    footer .socials a:nth-child(4){animation:riseIn .6s .35s both ease-out}
-    footer .socials a:nth-child(5){animation:riseIn .6s .45s both ease-out}
-    footer .socials a:nth-child(6){animation:riseIn .6s .55s both ease-out}
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
   <!-- Navbar -->
   <header class="navbar">
-    <a href="#" class="brand"><span class="brand-name">Inkrise</span></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="index.html" class="brand">
+      <img src="logo.svg" alt="Inkrise Logo" class="brand-mark"/>
+      <span class="brand-name">Inkrise</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="cta">Join Beta</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <h1><span class="accent">Inkrise</span> — Where Stories Rise Together</h1>
-    <p class="hero-sub">A collaborative platform where writers create, branch, and vote on storylines. The story never ends, and you never know where it will go.</p>
+    <span class="badge">New • Beta Launch</span>
+    <h1>Where <span class="accent">Stories Rise</span> Together</h1>
+    <p class="hero-sub">A collaborative storytelling platform where writers and readers create branching stories, vote on directions, and build worlds together.</p>
     <a href="#contact" class="btn btn-primary">Join the Beta</a>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <h2>About Inkrise</h2>
-    <p>Inkrise is a platform for collaborative storytelling. Multiple writers can join, add branches, and let the readers vote on where the story should go next. It's unpredictable, creative, and community-driven.</p>
+    <div class="hero-card">
+      <div class="bar"></div>
+      <p>✨ Writers and readers shaping narratives together.</p>
+    </div>
   </section>
 
   <!-- Features -->
   <section id="features">
-    <h2>Features</h2>
+    <h2>Why Inkrise?</h2>
     <div class="cards">
       <div class="card">
-        <h3>Branching Stories</h3>
-        <p>Start a story and let other writers take it in new directions.</p>
+        <h3>✍️ Collaborative Writing</h3>
+        <p>Create stories where multiple voices shape the outcome.</p>
       </div>
       <div class="card">
-        <h3>Community Voting</h3>
-        <p>Readers decide which branch becomes canon by voting.</p>
+        <h3>🗳 Community Voting</h3>
+        <p>Readers guide the path — branching narratives come alive.</p>
       </div>
       <div class="card">
-        <h3>Creator Dashboard</h3>
-        <p>Track your reads, votes, tips, and subscriptions in one place.</p>
+        <h3>📊 Creator Tools</h3>
+        <p>Track engagement, tips, and subscriptions in one dashboard.</p>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq">
-    <h2>FAQ</h2>
+    <h2>Frequently Asked Questions</h2>
     <details class="faq-item">
-      <summary>Is Inkrise free to use?</summary>
-      <p>Yes! You can read and participate for free. Premium features may come later.</p>
+      <summary>Is Inkrise free to join?</summary>
+      <p>Yes! Anyone can read and contribute. Premium tools unlock for creators later.</p>
     </details>
     <details class="faq-item">
-      <summary>Can I start my own story?</summary>
-      <p>Absolutely. Any member can start a new story and invite others to branch.</p>
+      <summary>Do I need to be a writer?</summary>
+      <p>No — readers help shape stories by voting on story branches.</p>
     </details>
     <details class="faq-item">
-      <summary>How do votes work?</summary>
-      <p>Readers vote on their favorite branches. The winning branch continues the story.</p>
+      <summary>When does the beta launch?</summary>
+      <p>Sign up now and we’ll notify you when the beta is live.</p>
     </details>
   </section>
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Contact Us</h2>
-    <p class="contact-lead">Have questions or want to join the beta? Send us a message.</p>
-    <form class="contact-form" action="https://formspree.io/f/xgvnwyyn" method="POST">
+    <h2>Join the Beta</h2>
+    <p class="contact-lead">Sign up to be one of the first to experience Inkrise.</p>
+    <form action="https://formspree.io/f/xgvnwyyn" method="POST" class="contact-form">
+      <input type="hidden" name="_redirect" value="https://inkrise.online/thank-you.html" />
       <div class="field">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" name="name" required/>
       </div>
       <div class="field">
         <label for="email">Email</label>
-        <input type="email" id="email" name="_replyto" required>
+        <input type="email" name="email" required/>
       </div>
-      <div class="field">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send</button>
-      <p class="form-note">We'll get back to you soon.</p>
+      <button type="submit" class="btn btn-primary">Join Now</button>
+      <p class="form-note">We’ll never spam you.</p>
     </form>
   </section>
 
-  <!-- Footer with Social Icons -->
+  <!-- Footer -->
   <footer>
     <p>© 2025 Inkrise. All rights reserved.</p>
     <div class="socials">
-      <a href="https://instagram.com/inkrise.online" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://twitter.com/inkriseonline" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
-      <a href="https://facebook.com/inkriseonline" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://tiktok.com/@inkriseonline" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      <a href="https://linkedin.com/company/inkriseonline" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://youtube.com/@inkriseonline" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://instagram.com/inkrise.online" target="_blank">Instagram</a> |
+      <a href="https://twitter.com/inkriseonline" target="_blank">Twitter</a> |
+      <a href="https://facebook.com/inkriseonline" target="_blank">Facebook</a> |
+      <a href="https://tiktok.com/@inkriseonline" target="_blank">TikTok</a>
     </div>
   </footer>
 
