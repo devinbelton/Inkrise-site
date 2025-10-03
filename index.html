@@ -3,162 +3,79 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INKRISE — Streetwear & Culture</title>
 
-  <title>INKRISE — Rise Above. Ink the Streets.</title>
-  <meta name="description" content="INKRISE is a high-end streetwear + culture platform. Drops, stories, and community—built from the streets up." />
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png" />
 
-  <!-- Color + icons -->
-  <meta name="theme-color" content="#0a0a0a" />
-  <link rel="icon" href="favicon.png">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <!-- Social cards (optional og.png already in root) -->
-  <meta property="og:title" content="INKRISE — Rise Above. Ink the Streets.">
-  <meta property="og:description" content="High-end streetwear + culture. Drops, stories, community.">
-  <meta property="og:image" content="https://inkrise.online/og.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://inkrise.online">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <!-- Main CSS (cache-bust with ?v=2) -->
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
-
 <body>
-  <!-- Top bar -->
-  <header class="nav">
-    <div class="nav__left">
-      <!-- Wordmark (clickable) -->
-      <a class="brand" href="/">
-        <span class="brand__ink">INK</span><span class="brand__rise">RISE</span>
-      </a>
-    </div>
-
-    <button class="nav__menu" aria-label="Open menu" aria-expanded="false" onclick="document.body.classList.toggle('menu-open')">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav__links">
-      <a href="#drops">Drops</a>
+  <header class="top">
+    <div class="brand">INKRISE</div>
+    <nav class="nav">
+      <a href="#drop">Drop</a>
       <a href="#about">About</a>
-      <a href="#contact" class="chip">Join list</a>
+      <a href="#contact" class="btn">Join waitlist</a>
     </nav>
   </header>
 
-  <!-- Hero with wall -->
-  <section class="hero">
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <h1>Rise Above. <span class="accent">Ink the Streets.</span></h1>
-      <p class="lead">
-        High-end streetwear + culture. Limited drops. Real stories. Built from the streets up.
-      </p>
-
-      <a href="#contact" class="btn btn--primary">Get on the list</a>
-      <a href="#drops" class="btn btn--ghost">See what’s coming</a>
-    </div>
-    <!-- background image is set in CSS and points to ./graffiti-wall.jpg -->
-  </section>
-
-  <!-- Drops teaser -->
-  <section id="drops" class="wrap grid">
-    <article class="card">
-      <h3>Drop 001 — “Brick Talk”</h3>
-      <p>Heavyweight tees + hoodies with tonal emboss and micro-tag. Ultra-limited.</p>
-      <span class="pill">Coming soon</span>
-    </article>
-    <article class="card">
-      <h3>Drop 002 — “Night Lines”</h3>
-      <p>Midnight nylon set with reflective stitch and stealth branding.</p>
-      <span class="pill">In design</span>
-    </article>
-    <article class="card">
-      <h3>Stories</h3>
-      <p>Creators and community shaping the city. Interviews, behind the scenes, and collabs.</p>
-      <span class="pill">Launching</span>
-    </article>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="wrap about">
-    <h2>What is INKRISE?</h2>
-    <p>
-      We mix <strong>premium streetwear</strong> with a culture hub. You’ll find drops, stories,
-      and a tight community. Think clean design, hard details, and no fluff.
-    </p>
-  </section>
-
-  <!-- Contact / waitlist -->
-  <section id="contact" class="wrap contact">
-    <h2>Join the waitlist</h2>
-    <p>No spam. Just drop alerts and early access.</p>
-
-    <form
-      action="https://formspree.io/f/your-form-id"
-      method="POST"
-      class="form"
-    >
-      <!-- hide Formspree UI by instantly redirecting after success -->
-      <input type="hidden" name="_redirect" value="https://inkrise.online/#thanks">
-      <label>Email
-        <input type="email" name="email" required placeholder="you@example.com">
-      </label>
-
-      <label>What do you want to see? (optional)
-        <textarea name="message" rows="3" placeholder="Cuts, colors, collabs, sizes…"></textarea>
-      </label>
-
-      <button class="btn btn--primary" type="submit">Request invite</button>
-    </form>
-
-    <p id="thanks" class="thanks" aria-live="polite">Thanks — you’re on the list.</p>
-  </section>
-
-  <!-- Footer with REAL icon SVGs (no external images) -->
-  <footer class="footer">
-    <div class="wrap footer__inner">
-      <div class="footer__brand">© <span id="year"></span> INKRISE. All rights reserved.</div>
-      <div class="footer__socials">
-        <a aria-label="Instagram" href="https://instagram.com/inkrise" target="_blank" rel="noopener">
-          <!-- Instagram SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm0 2.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6zM18.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
-          </svg>
-        </a>
-
-        <a aria-label="X (Twitter)" href="https://x.com/inkrise" target="_blank" rel="noopener">
-          <!-- X SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-            <path d="M2 3h5.4l5.1 6.9L18.6 3H22l-7.7 9.6L22 21h-5.4l-5.4-7.3L5.4 21H2l7.9-9.8L2 3z"/>
-          </svg>
-        </a>
-
-        <a aria-label="TikTok" href="https://tiktok.com/@inkrise" target="_blank" rel="noopener">
-          <!-- TikTok SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-            <path d="M14 3c1.2 1.8 2.8 3 5 3v3.2c-1.9-.1-3.4-.7-5-1.8V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1V12a3 3 0 1 0 3 3V3h2z"/>
-          </svg>
-        </a>
-
-        <a aria-label="YouTube" href="https://youtube.com/@inkrise" target="_blank" rel="noopener">
-          <!-- YouTube SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-            <path d="M23 7.5a4 4 0 0 0-2.8-2.8C18 4 12 4 12 4s-6 0-8.2.7A4 4 0 0 0 1 7.5 41 41 0 0 0 1 12a41 41 0 0 0 .8 4.5 4 4 0 0 0 2.8 2.8C6 20 12 20 12 20s6 0 8.2-.7a4 4 0 0 0 2.8-2.8c.5-1.5.8-3 .8-4.5s-.3-3-.8-4.5zM10 15.5V8.5L16 12l-6 3.5z"/>
-          </svg>
-        </a>
+  <main>
+    <section class="hero" id="drop">
+      <div class="hero-inner">
+        <h1>Rise Above.<br/>Ink the Streets.</h1>
+        <p>Streetwear & culture from Atlanta. Limited tees, drops, and collabs.</p>
+        <a class="btn btn-primary" href="#contact">Get notified</a>
       </div>
+    </section>
+
+    <section class="panel" id="about">
+      <h2>About INKRISE</h2>
+      <p>
+        INKRISE blends graffiti energy with clean, premium cuts. Built for motion,
+        made to stand out.
+      </p>
+    </section>
+
+    <section class="panel" id="contact">
+      <h2>Join the waitlist</h2>
+      <form
+        action="https://formspree.io/f/your-form-id"
+        method="POST"
+        class="form"
+      >
+        <input type="email" name="email" placeholder="you@example.com" required />
+        <textarea name="message" rows="3" placeholder="Tell us what you want to see (optional)"></textarea>
+
+        <!-- Redirect back to your site after submit -->
+        <input type="hidden" name="_redirect" value="https://inkrise.online/thank-you.html" />
+        <button type="submit" class="btn btn-primary">Request invite</button>
+      </form>
+      <p class="tiny">We’ll only use your email to contact you about INKRISE.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="y"></span> INKRISE. All rights reserved.</p>
+    <div class="socials">
+      <a aria-label="Instagram" href="#" target="_blank" rel="noopener">
+        <!-- Instagram SVG -->
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zm0 2a4.5 4.5 0 1 0 .001 9.001A4.5 4.5 0 0 0 12 9.5zm6.25-2.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+        </svg>
+      </a>
+      <a aria-label="X" href="#" target="_blank" rel="noopener">
+        <!-- X/Twitter SVG -->
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M18.244 2H21l-6.56 7.49L22 22h-6.938l-4.66-6.08L4.88 22H2.12l7.09-8.09L2 2h6.998l4.275 5.73L18.244 2Zm-1.212 18.4h1.785L7.13 3.5H5.273l11.76 16.9Z"/>
+        </svg>
+      </a>
     </div>
   </footer>
 
   <script>
-    // show year automatically
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // simple anchor “#thanks” reveal after Formspree redirect
-    if (location.hash === '#thanks') {
-      const el = document.getElementById('thanks');
-      if (el) el.classList.add('show');
-    }
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
