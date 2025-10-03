@@ -3,154 +3,140 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>InkRise — Where stories rise together</title>
-
-  <!-- Theme -->
-  <meta name="theme-color" content="#0e0e12" />
-  <meta name="color-scheme" content="dark" />
-
-  <!-- SEO -->
-  <meta name="description" content="InkRise blends collaborative storytelling with streetwear culture. Join the beta and be first to cop drops and shape stories." />
-  <meta property="og:title" content="InkRise" />
-  <meta property="og:description" content="Where stories rise together." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="og.png" />
-  <meta property="og:url" content="https://inkrise.online" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Favicon (optional; keep your existing files) -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="favicon.png" type="image/png">
-
-  <!-- Styles -->
-  <link rel="preload" href="assets/graffiti-wall.jpg" as="image">
+  <title>INKRISE — Luxury Streetwear · Limited Drops</title>
+  <meta name="description" content="INKRISE — luxury streetwear with limited drops and clean visuals. Join the drop and follow the lookbook." />
+  <meta name="theme-color" content="#0D0D0D" />
+  <link rel="icon" href="favicon.png" />
+  <link rel="preload" href="assets/graffiti-wall.jpg" as="image" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- NAV -->
   <header class="nav">
-    <a class="brand" href="#top" aria-label="InkRise home">
-      <img src="assets/logo-inkrise.png" alt="InkRise logo" height="40" />
+    <a class="brand" href="#top" aria-label="INKRISE Home">
+      <img src="assets/logo-inkrise.png" alt="INKRISE" />
     </a>
-
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#drops">Drops</a>
-      <a href="#beta" class="pill">Join Beta</a>
+    <nav class="links" aria-label="Primary">
+      <a href="#lookbook">Lookbook</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact" class="btn btn-gold">Join the Drop</a>
     </nav>
-
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="menu" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </header>
 
   <!-- HERO -->
-  <section id="top" class="hero" role="banner" aria-label="InkRise hero section">
-    <div class="hero__bg"></div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <h1>Where <span class="accent">stories</span> rise together</h1>
-      <p class="tag">Streetwear × Storytelling</p>
+  <section id="top" class="hero" role="banner" aria-label="Hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <h1 class="headline">INKRISE</h1>
+      <p class="sub">Luxury Streetwear. Limited Drops. No Restocks.</p>
       <div class="cta-row">
-        <a href="#beta" class="btn btn-primary">Join the beta</a>
-        <a href="#about" class="btn btn-ghost">Learn more</a>
+        <a href="#shop" class="btn btn-gold">Shop Preview</a>
+        <a href="#lookbook" class="btn btn-outline">View Lookbook</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
+  <!-- LOOKBOOK -->
+  <section id="lookbook" class="section">
     <div class="wrap">
-      <h2>What is InkRise?</h2>
-      <p>
-        InkRise is a collaborative storytelling platform with a streetwear soul. Readers help
-        decide what rises next while limited-run drops celebrate the worlds we build together.
-      </p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Vote the next chapter</h3>
-          <p>Communities steer branching stories. Your choices shape canon.</p>
-        </div>
-        <div class="card">
-          <h3>Limited drops</h3>
-          <p>Small-batch tees, hoodies, and accessories tied to story arcs.</p>
-        </div>
-        <div class="card">
-          <h3>Creator-first</h3>
-          <p>Transparent splits and tools that let writers and artists eat.</p>
-        </div>
+      <h2>Lookbook</h2>
+      <div class="strip">
+        <figure class="shot"><img src="assets/look-1.jpg" alt="Look 1"><figcaption>Bone</figcaption></figure>
+        <figure class="shot"><img src="assets/look-2.jpg" alt="Look 2"><figcaption>Black</figcaption></figure>
+        <figure class="shot"><img src="assets/look-3.jpg" alt="Look 3"><figcaption>Charcoal</figcaption></figure>
+        <figure class="shot"><img src="assets/look-4.jpg" alt="Look 4"><figcaption>Detail</figcaption></figure>
+        <figure class="shot"><img src="assets/look-5.jpg" alt="Look 5"><figcaption>Limited</figcaption></figure>
       </div>
     </div>
   </section>
 
-  <!-- DROPS PREVIEW -->
-  <section id="drops" class="section alt">
+  <!-- SHOP -->
+  <section id="shop" class="section alt">
     <div class="wrap">
-      <h2>Upcoming drops</h2>
-      <div class="cards">
-        <article class="tile">
-          <div class="badge">Limited</div>
-          <h3>Origin Tee</h3>
-          <p>Gold tag print, heavyweight 240gsm. First 150 only.</p>
+      <h2>Shop (Preview)</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="badge">50 pcs</div>
+          <img src="assets/prod-tee.jpg" alt="INKRISE Logo Tee — Black" />
+          <div class="pad">
+            <h3>Logo Tee — Black</h3>
+            <p class="meta">240gsm · Classic fit · Screen print</p>
+            <div class="buy">
+              <span class="price">$28</span>
+              <a class="btn btn-gold" href="#">Buy</a>
+            </div>
+          </div>
         </article>
-        <article class="tile">
-          <div class="badge">Collab</div>
-          <h3>Chapter 01 Hoodie</h3>
-          <p>Graphic back hit + sleeve story glyphs.</p>
+
+        <article class="card">
+          <div class="badge">Restock unlikely</div>
+          <img src="assets/prod-hoodie.jpg" alt="INKRISE Heavy Hoodie — Bone" />
+          <div class="pad">
+            <h3>Heavy Hoodie — Bone</h3>
+            <p class="meta">400gsm · Oversized · Embroidered mark</p>
+            <div class="buy">
+              <span class="price">$58</span>
+              <a class="btn btn-gold" href="#">Buy</a>
+            </div>
+          </div>
         </article>
-        <article class="tile">
-          <div class="badge">Archive</div>
-          <h3>Sticker Pack</h3>
-          <p>Logo, tag, and glyphs — matte vinyl.</p>
+
+        <article class="card">
+          <div class="badge">New</div>
+          <img src="assets/prod-cap.jpg" alt="INKRISE 6-Panel Cap — Charcoal" />
+          <div class="pad">
+            <h3>6-Panel Cap — Charcoal</h3>
+            <p class="meta">Low profile · Adjustable · Tonal logo</p>
+            <div class="buy">
+              <span class="price">$32</span>
+              <a class="btn btn-gold" href="#">Buy</a>
+            </div>
+          </div>
         </article>
       </div>
+      <p class="note">Stripe links coming soon.</p>
     </div>
   </section>
 
-  <!-- BETA SIGNUP (no Formspree text anywhere; simple mailto for now) -->
-  <section id="beta" class="section">
+  <!-- CONTACT / JOIN -->
+  <section id="contact" class="section">
     <div class="wrap">
-      <h2>Join the beta</h2>
-      <p>No spam. We’ll only contact you about InkRise.</p>
-
-      <!-- If you want a real backend later, we can switch this. For now: mailto and success page -->
-      <form class="form" action="mailto:join@inkrise.online" method="post" enctype="text/plain">
+      <h2>Join the Drop</h2>
+      <p class="muted">Be first to releases and pop-ups. No spam.</p>
+      <!-- keep vendors hidden: mailto for now -->
+      <form class="form" action="mailto:join@inkrise.online" method="post" enctype="text/plain" onsubmit="setTimeout(()=>alert('Thanks — you’re on the list.'),10)">
         <label>Email
-          <input type="email" name="email" placeholder="you@example.com" required>
+          <input type="email" name="email" placeholder="you@example.com" required />
         </label>
-
-        <label>What would you like to see on InkRise? (optional)
-          <textarea name="message" rows="4" placeholder="Stories, tools, features…"></textarea>
+        <label>Note (optional)
+          <textarea name="message" rows="4" placeholder="Size, color, or city drop you want…"></textarea>
         </label>
-
-        <button class="btn btn-primary" type="submit">Request invite</button>
-        <p class="form-note">Tip: if your mail app doesn’t open, just email <a href="mailto:join@inkrise.online">join@inkrise.online</a> directly.</p>
+        <button class="btn btn-gold" type="submit">Request Invite</button>
+        <p class="form-note">If your mail app doesn’t open, email us directly: <a href="mailto:join@inkrise.online">join@inkrise.online</a></p>
       </form>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="wrap footer__inner">
-      <p class="copyright">© <span id="year"></span> InkRise. All rights reserved.</p>
-
+    <div class="wrap foot">
+      <div class="copy">© <span id="year"></span> INKRISE</div>
       <nav class="socials" aria-label="Social links">
-        <a class="social" href="https://instagram.com/inkrise" target="_blank" rel="noopener" aria-label="Instagram">
-          <!-- Instagram SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 2a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.75-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
+        <!-- Inline SVG icons so size is locked; edit hrefs -->
+        <a class="icon" href="https://instagram.com/inkrise" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zM18.75 6.75a1 1 0 100 2 1 1 0 000-2z"/></svg>
         </a>
-        <a class="social" href="https://x.com/inkrise" target="_blank" rel="noopener" aria-label="X">
-          <!-- X/Twitter SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M18 2h3l-7.5 8.6L22 22h-6.5l-5-6.9L4.7 22H2l8-9.1L2 2h6.5l4.6 6.4L18 2z"/></svg>
+        <a class="icon" href="https://x.com/inkrise" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M18 2h3l-7.5 8.6L22 22h-6.5l-5-6.9L4.7 22H2l8-9.1L2 2h6.5l4.6 6.4L18 2z"/></svg>
         </a>
-        <a class="social" href="https://tiktok.com/@inkrise" target="_blank" rel="noopener" aria-label="TikTok">
-          <!-- TikTok SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M14.5 2h3c.1 1.8 1.2 3.3 3 3.7v3a7.6 7.6 0 01-3-1V17a5.5 5.5 0 11-5.5-5.5h.5v3a2.5 2.5 0 102 2.4V2z"/></svg>
+        <a class="icon" href="https://tiktok.com/@inkrise" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M14.5 2h3c.1 1.8 1.2 3.3 3 3.7v3a7.6 7.6 0 01-3-1V17a5.5 5.5 0 11-5.5-5.5h.5v3a2.5 2.5 0 102 2.4V2z"/></svg>
         </a>
-        <a class="social" href="https://youtube.com/@inkrise" target="_blank" rel="noopener" aria-label="YouTube">
-          <!-- YouTube SVG -->
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M23 8.2a4 4 0 00-2.8-2.8C18.3 5 12 5 12 5s-6.3 0-8.2.4A4 4 0 001 8.2 41 41 0 000 12a41 41 0 001 3.8 4 4 0 002.8 2.8C5.7 19 12 19 12 19s6.3 0 8.2-.4A4 4 0 0023 15.8 41 41 0 0024 12a41 41 0 00-1-3.8zM10 15V9l6 3-6 3z"/></svg>
+        <a class="icon" href="https://youtube.com/@inkrise" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M23 8.2a4 4 0 00-2.8-2.8C18.3 5 12 5 12 5s-6.3 0-8.2.4A4 4 0 001 8.2 41 41 0 000 12a41 41 0 001 3.8 4 4 0 002.8 2.8C5.7 19 12 19 12 19s6.3 0 8.2-.4A4 4 0 0023 15.8 41 41 0 0024 12a41 41 0 00-1-3.8zM10 15V9l6 3-6 3z"/></svg>
         </a>
       </nav>
     </div>
@@ -158,13 +144,12 @@
 
   <script>
     // Mobile menu
-    const toggle = document.querySelector('.menu-toggle');
-    const links = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => {
+    const menuBtn = document.querySelector('.menu');
+    const links   = document.querySelector('.links');
+    menuBtn.addEventListener('click',()=>{
       const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
