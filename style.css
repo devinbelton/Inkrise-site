@@ -149,3 +149,49 @@ footer{
   text-align:center; padding:20px; color:#8e8e8e;
   border-top:1px solid var(--outline); background:var(--ink-darker);
 }
+.hero {
+  background: url("graffiti-wall.jpg") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.55); /* dark overlay for readability */
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.hero-logo {
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  filter: invert(1); /* makes icons white */
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
