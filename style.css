@@ -85,4 +85,52 @@ h3{margin:0 0 10px}
 
 .grid-3{display:grid; gap:16px; grid-template-columns:repeat(3,1fr)}
 .card{
-  background:var(--panel); border:1px solid var
+  background:var(--panel); border:1px solid var(--ring); border-radius:16px;
+  padding:18px; box-shadow:0 0 0 1px rgba(255,255,255,.02) inset;
+}
+
+/* Drops tiles */
+.cards{display:grid; gap:16px; grid-template-columns:repeat(3,1fr)}
+.tile{
+  background:linear-gradient(180deg, #151823, #12141c);
+  border:1px solid var(--ring); border-radius:18px; padding:18px; position:relative;
+}
+.badge{
+  position:absolute; top:12px; right:12px; font-size:12px; letter-spacing:.4px;
+  background:rgba(255,211,77,.15); color:var(--accent); border:1px solid rgba(255,211,77,.5);
+  padding:4px 8px; border-radius:999px;
+}
+
+/* Form */
+.form{
+  background:var(--panel); border:1px solid var(--ring); border-radius:18px;
+  padding:18px; max-width:680px;
+}
+.form label{display:block; margin:0 0 14px; color:var(--muted)}
+.form input,.form textarea{
+  width:100%; margin-top:6px; padding:12px 12px; border-radius:12px;
+  background:#0d0f15; border:1px solid #232634; color:var(--text);
+  outline:none;
+}
+.form input:focus,.form textarea:focus{border-color:#3e4253; box-shadow:0 0 0 3px rgba(138,232,255,.12)}
+.form-note{color:#8a8e99; font-size:14px; margin-top:10px}
+
+/* Footer */
+.footer{padding:28px 20px; border-top:1px solid var(--ring); background:#0d0f15}
+.footer__inner{display:flex; gap:16px; justify-content:space-between; align-items:center; flex-wrap:wrap}
+.copyright{color:var(--muted); margin:0}
+.socials{display:flex; gap:12px}
+.social{
+  display:grid; place-items:center; width:36px; height:36px; border-radius:10px;
+  background:#121420; color:#c9d0ff; border:1px solid #24283a; text-decoration:none;
+}
+.social:hover{color:#fff; border-color:#3a3f59}
+
+/* Responsive */
+@media (max-width: 860px){
+  .grid-3,.cards{grid-template-columns:1fr}
+  .nav-links{position:absolute; right:16px; top:64px; background:#0d0f15; border:1px solid var(--ring);
+    padding:10px; border-radius:12px; display:none; flex-direction:column; width:180px}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:block}
+}
